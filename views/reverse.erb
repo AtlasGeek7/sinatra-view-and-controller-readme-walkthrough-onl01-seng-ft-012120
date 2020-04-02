@@ -7,11 +7,19 @@
   </head>
 
   <body>
-    <h1>The Ultimate String Reverser</h1>
+    <% title = "The Ultimate String Reverser" if !@reversed_string %>
+    <% title = "The Ultimate Reversed String!" if @reversed_string %>
+    <h1><% title %></h1>
+        <% bool = "block" if !@reversed_string %>
+    <% bool = "none" if @reversed_string %>
 
-    <form method="POST" action="/reverse">
+    <form method="POST" action="/reverse" style="display: <%=bool%>; ">
       <input type="text" name="string">
       <input type="submit">
     </form>
+    
+    
+     <h2><%= @reversed_string %></h2>
+     
   </body>
 </html>
